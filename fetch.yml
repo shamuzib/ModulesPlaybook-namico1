@@ -1,0 +1,9 @@
+--- #FETCH Module
+- hosts: all
+  remote_user: test
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: fetching a file from remote system
+    fetch: src=/home/test/ara1 dest=/home/test/Pract/Modules/{{ ansible_hostname }} mode=000 group=root owner=root flat=yes

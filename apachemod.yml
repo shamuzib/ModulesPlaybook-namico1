@@ -1,0 +1,9 @@
+--- #APACH Module
+- hosts: Debian
+  remote_user: test
+  become: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Disabling Module in apache
+    apache2_module: name=alias state=present

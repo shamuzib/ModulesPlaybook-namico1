@@ -1,0 +1,16 @@
+--- #Copy Module
+- hosts: all
+  become: yes
+  remote_user: test
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Creating files
+    raw: touch /home/test/ara1
+  - name: Pause for verification
+    pause:
+     seconds: 15
+  - name: Copy the aboe file created
+    copy: src=/home/test/ara1 dest=/home/ mode=777 group=test owner=test
+  - name: Copy .retry files to systems
+    copy: src=/home/test/Pract/Modules/*.retry dest=/home/ mode=000 group=test owner=root

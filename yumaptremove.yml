@@ -1,0 +1,9 @@
+--- #YUM and APT Module
+- hosts: all
+  remote_user: test
+  connection: ssh
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Remove lynx from system
+    package: name=lynx state=removed

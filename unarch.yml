@@ -1,0 +1,9 @@
+--- #UNARCHIVE Module
+- hosts: all
+  connection: ssh
+  become: yes
+  remote_user: test
+  gather_facts: yes
+  tasks:
+  - name: copy a archive to remote system and unarchive it
+    unarchive: src=/home/test/Modules/word.tar.gz dest=/home/ copy=yes mode=777 owner=test group=test

@@ -1,0 +1,11 @@
+--- #Adding Repository and Key
+- hosts: Debian
+  remote_user: test
+  connection: ssh
+  gather_facts: no
+  become: yes
+  tasks:
+  - name: Adding a ggole public keys
+    apt_key: url="https://dl.google.com/linux/linux_signing_key.pub" state=present
+  - name: Adding repository
+    apt_repository: repo="deb http://dl.google.com/linux/chrome/deb/ stable main" state=present

@@ -1,0 +1,12 @@
+--- #Pause Module
+- hosts: RedHat
+  remote_user: test
+  connection: ssh
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Removing lynx
+    package: name=lynx state=removed
+  - name: Pausing
+    pause:
+     seconds: 5

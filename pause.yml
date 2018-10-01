@@ -1,0 +1,14 @@
+--- #PAUSE Module
+- hosts: RedHat
+  remote_user: test
+  connection: ssh
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Install lynx
+    package: name=lynx state=installed
+  - name: Pauing the playbook
+    pause:
+     seconds: 5
+  - name: Verify lynx Installation
+    package: name=lynx state=present

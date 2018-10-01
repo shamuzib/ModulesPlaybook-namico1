@@ -1,0 +1,9 @@
+--- #CRON Module
+- hosts: all
+  remote_user: test
+  become: yes
+  gather_facts: no
+  connection: ssh
+  tasks:
+  - name: setting up a cron job
+    cron: name="banana" minute='46' hour='06' day='29' month='09' job="ls -al > /home/test/logs.log"

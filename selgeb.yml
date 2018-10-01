@@ -1,0 +1,11 @@
+--- #SELINUX and SEBOOL Modules
+- hosts: RedHat
+  remote_user: test
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Setting up SELINUX Value
+    selinux: state=enforcing policy=targeted
+  - name: Turning on SEBOOL Value
+    seboolean: name=httpd_anon_write state=yes persistent=yes

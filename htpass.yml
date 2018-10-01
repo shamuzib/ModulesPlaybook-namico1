@@ -1,0 +1,9 @@
+--- #HTPASS Module
+- hosts: Debian
+  remote_user: test
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: creating user to website authentication
+    htpasswd: path=/etc/apache2/.htpasswd name=test3 password=test3

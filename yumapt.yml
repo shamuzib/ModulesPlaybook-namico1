@@ -1,0 +1,9 @@
+--- #YUM and APT Module
+- hosts: all
+  remote_user: test
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Installing lynx on system
+    package: name=lynx state=installed

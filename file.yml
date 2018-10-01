@@ -1,0 +1,11 @@
+--- #File Module
+- hosts: RedHat
+  connection: ssh
+  remote_user: test
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: finding file details
+    file: path=/etc/fstab
+    register: nami
+  - debug: var=nami

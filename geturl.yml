@@ -1,0 +1,9 @@
+--- #GET_URL module
+- hosts: all
+  connection: ssh
+  gather_facts: no
+  become: yes
+  remote_user: test
+  tasks:
+  - name: Getting package using URL
+    get_url: url=https://wordpress.org/latest.zip dest=/home/test/Pract/ mode=0777 owner=test group=test
